@@ -10,6 +10,16 @@ import {
   Spacer,
   Image,
 } from "@chakra-ui/react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 const SearchResults = ({ data }) => {
   const [search, setSearch] = useState("");
@@ -30,7 +40,9 @@ const SearchResults = ({ data }) => {
     setFilteredCard(filtered);
     setShowResults(true);
   };
-  console.log(showResults);
+  console.log(clickedCoin);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleClick = (coin) => {};
 
@@ -76,6 +88,10 @@ const SearchResults = ({ data }) => {
                         mb={10}
                         minH="15vh"
                         as="button"
+                        onClick={() => {
+                          setClickedCoin(coin);
+                          onOpen();
+                        }}
                         _hover={{ bg: "brand.300" }}
                         _active={{ bg: "brand.400", transform: "scale(0.95)" }}
                       >
@@ -110,6 +126,60 @@ const SearchResults = ({ data }) => {
           </Box>
         </Flex>
       )}
+
+      {/* MODAL */}
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{clickedCoin.name}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Flex direction="column" justify="center" align="center">
+              <Box borderBottom="4px solid gray" pb={6}>
+                <Flex align="center">
+                  <Image
+                    boxSize="9rem"
+                    src={clickedCoin.image}
+                    alt={clickedCoin.name}
+                    p={2}
+                  />
+                  <Heading as="h3" fontSize="1.8rem" p={5} fontWeight="700">
+                    {clickedCoin.symbol.toUpperCase()}
+                  </Heading>
+                </Flex>
+              </Box>
+              <Box p={10}>
+                <Text>Price: {clickedCoin.current_price}</Text>
+                <Text>Market Cap: {clickedCoin.market_cap}</Text>
+                <Text>Market Cap Rank: {clickedCoin.market_cap_rank}</Text>
+                <Text>High 24h: {clickedCoin.high_24h}</Text>
+                <Text>Low 24h: {clickedCoin.low_24h}</Text>
+                <Text>Price Change 24h: {clickedCoin.price_change_24h}</Text>
+                <Text>
+                  Price Change Percentage 24h:{" "}
+                  {clickedCoin.price_change_percentage_24h}
+                </Text>
+                <Text>
+                  Market Cap Change 24h: {clickedCoin.market_cap_change_24h}
+                </Text>
+                <Text>
+                  Market Cap Change Percentage 24h:{" "}
+                  {clickedCoin.market_cap_change_percentage_24h}
+                </Text>
+                <Text>
+                  Circulating Supply: {clickedCoin.circulating_supply}
+                </Text>
+                <Text>Total Supply: {clickedCoin.total_supply}</Text>
+                <Text>Max Supply: {clickedCoin.max_supply}</Text>
+                <Text>
+                  Price Change Percentage 7d:{" "}
+                  {clickedCoin.price_change_percentage_7d}
+                </Text>
+              </Box>
+            </Flex>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Flex>
   );
 };
