@@ -144,7 +144,7 @@ const SearchResults = ({ data }) => {
                     p={2}
                   />
                   <Heading as="h3" fontSize="1.8rem" p={5} fontWeight="700">
-                    {clickedCoin.symbol.toUpperCase()}
+                    {clickedCoin.symbol}
                   </Heading>
                 </Flex>
               </Box>
