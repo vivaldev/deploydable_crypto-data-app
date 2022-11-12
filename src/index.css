@@ -16,7 +16,7 @@
 }
 
 body {
-  background-color: cadetblue;
+  background-color: rgb(26, 32, 44);
 }
 
 a {
@@ -71,4 +71,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.home {
+  background-color: #747bff;
 }

@@ -1,70 +1,43 @@
 import React from "react";
-import {
-  Image,
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Spacer,
-  Button,
-  ButtonGroup,
-  HStack,
-} from "@chakra-ui/react";
-import {
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
-} from "@chakra-ui/react";
-import { Link } from "@chakra-ui/react";
-import { chakra } from "@chakra-ui/react";
+import Nav from "./Nav";
 
-const Nav = () => {
-  return (
-    <HStack spacing={4} m={2}>
-      <Button
-        as={Link}
-        to="/"
-        colorScheme="teal"
-        variant="outline"
-        color="teal.900"
-        _hover={{ bg: "teal.900", color: "white" }} // hover color
-        _active={{ bg: "teal.900", color: "white" }} // active color
-      >
-        Home
-      </Button>
-      <Button as="a" href="/charts" colorScheme="blue" variant="outline">
-        Charts
-      </Button>
-      <Button as="a" href="/search" colorScheme="blue" variant="outline">
-        Search
-      </Button>
-    </HStack>
-  );
-};
+import { Image, Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 const Header = () => {
   return (
-    <Box as="header" bg="gray.200" p={4}>
-      <Flex align="center">
-        <Image
-          src="../public/analytics.png"
-          alt="App logo"
-          boxSize={100}
-          objectFit="cover"
-          m={2}
-        />
+    <Box as="header" bg="brand.400" p={4} h="16vh" w="100%">
+      <Flex justify="space-around" align="flex-end">
         <Box>
-          <Heading as="h1" size="2xl" ml={2} color={"gray.600"}>
-            Crypto Data App
-          </Heading>
-          <Text as="p" ml={3} color={"teal.900"}>
-            Powered by CoinGecko
-          </Text>
+          <Flex align="flex-end">
+            <Image
+              src="../public/analytics.png"
+              alt="App logo"
+              boxSize={100}
+              objectFit="cover"
+              m={2}
+              ml="2em"
+              mt={8}
+            />
+
+            <Box>
+              <Flex justify="center" align="center" direction="column">
+                <Heading
+                  as="h1"
+                  size="2xl"
+                  mt={10}
+                  ml={2}
+                  color="whiteAlpha.700"
+                >
+                  Crypto Data App
+                </Heading>
+              </Flex>
+              <Text as="p" m={3} color="blackAlpha.900" textAlign="left">
+                Powered by CoinGecko API
+              </Text>
+            </Box>
+          </Flex>
         </Box>
 
-        <Spacer />
         <Box>
           <Nav />
         </Box>

@@ -14,12 +14,14 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-function Charts({ data }) {
+function Top100({ data }) {
+  // TODO: add slider to select number of coins to display
+
   return (
     <div>
       <Heading
         fontFamily={"Karla"}
-        color={"blue.600"}
+        color={"gray.700"}
         mt={10}
         as="h3"
         size="xl"
@@ -29,7 +31,7 @@ function Charts({ data }) {
       </Heading>
       <Flex direction="column" align="center" justify="center" minH="100vh">
         <TableContainer mt={10}>
-          <Table colorScheme={"blue"} variant="striped">
+          <Table colorScheme={"gray"} variant="striped">
             <TableCaption>Top 100 Cryptocurrencies</TableCaption>
             <Thead>
               <Tr>
@@ -70,4 +72,4 @@ function Charts({ data }) {
   );
 }
 
-export default Charts;
+export default Top100;
