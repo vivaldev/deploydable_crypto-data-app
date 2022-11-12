@@ -16,9 +16,7 @@ const Nav = () => {
         <HStack spacing={8} align="center" justify="center" m={4}>
           <Breadcrumb separator="-">
             <BreadcrumbItem>
-              <Link textDecoration="none" href="/">
-                Home
-              </Link>
+              <Link href="/">Home</Link>
             </BreadcrumbItem>
 
             <BreadcrumbItem>

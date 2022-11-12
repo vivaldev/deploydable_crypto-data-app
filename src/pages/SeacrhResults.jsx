@@ -49,6 +49,7 @@ const SearchResults = ({ data }) => {
             h="30vh"
             bg="brand.200"
             borderRadius={10}
+            p={15}
           >
             <Flex
               justify="space-around"
@@ -70,9 +71,15 @@ const SearchResults = ({ data }) => {
                         align="center"
                         w="60%"
                         border="2px solid gray"
-                        m={2}
+                        borderRadius={5}
+                        m="10px"
+                        mb={10}
+                        minH="15vh"
+                        as="button"
+                        _hover={{ bg: "brand.300" }}
+                        _active={{ bg: "brand.400", transform: "scale(0.95)" }}
                       >
-                        <Box w="10vh">
+                        <Box>
                           <Image
                             boxSize="9rem"
                             src={coin.image}
@@ -82,7 +89,14 @@ const SearchResults = ({ data }) => {
                         </Box>
                         <Box w="20%" h="20%">
                           <Flex>
-                            <Heading as="h3" fontSize="1.3rem" p={5}>
+                            <Heading
+                              color="brand.800"
+                              as="h3"
+                              fontSize="1.3rem"
+                              p={5}
+                              fontWeight="500"
+                              lineHeight={1.5}
+                            >
                               {coin.name}
                             </Heading>
                           </Flex>
