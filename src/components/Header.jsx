@@ -5,7 +5,7 @@ import { Image, Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 const Header = () => {
   return (
-    <Box as="header" bg="brand.400" p={4} h="16vh" w="100%">
+    <Box as="header" bg="brand.400" p={4} w="100%">
       <Flex justify="space-around" align="flex-end">
         <Box>
           <Flex align="flex-end">
