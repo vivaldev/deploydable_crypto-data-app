@@ -28,7 +28,7 @@ const theme = extendTheme({
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <Box h="100vh" bg="brand.100">
+      <Box h="auto" bg="brand.100">
         <App />
       </Box>
     </ChakraProvider>
