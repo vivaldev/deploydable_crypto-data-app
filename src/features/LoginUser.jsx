@@ -13,7 +13,7 @@ function LoginUser({ toggleRegisterUser }) {
   return (
     <Box>
       <Flex w="100%" h="100vh" justify="center" mt="10vh">
-        <Box bg="brand.300" w="26vw" maxW="26vw" h="40vh" borderRadius={10}>
+        <Box bg="brand.400" w="26vw" maxW="26vw" h="40vh" borderRadius={10}>
           <Flex
             justify="center"
             align="center"
@@ -24,9 +24,9 @@ function LoginUser({ toggleRegisterUser }) {
             <Heading as="h3" size="lg" color="whiteAlpha.800">
               Login
             </Heading>
-            <Flex w="23vw" m={5} bg="brand.200">
+            <Flex maxW="24vw" h="28vh" m={5} bg="brand.200">
               <Box borderRadius={10} p={5}>
-                <Flex direction="column" w="20vw">
+                <Flex direction="column" h="10vh" w="20vw">
                   <Text
                     fontFamily="Karla"
                     fontSize="1.3rem"
@@ -37,6 +37,7 @@ function LoginUser({ toggleRegisterUser }) {
                     Username:
                   </Text>
                   <Input
+                    bg="brand.50"
                     placeholder="Username"
                     w="100%"
                     mt={2}
@@ -55,7 +56,8 @@ function LoginUser({ toggleRegisterUser }) {
                     Password:
                   </Text>
                   <Input
-                    placeholder="Username"
+                    bg="brand.50"
+                    placeholder="Password"
                     w="100%"
                     mt={2}
                     p={5}
@@ -63,8 +65,10 @@ function LoginUser({ toggleRegisterUser }) {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <Button
-                    bg="brand.50"
-                    color="brand.800"
+                    bg="brand.500"
+                    type="submit"
+                    color="brand.50"
+                    fontSize="1.2rem"
                     mt={5}
                     onClick={() => {
                       loggingIn();
