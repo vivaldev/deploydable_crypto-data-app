@@ -1,23 +1,21 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import { Box, Flex, Heading, Text, Input, Button } from "@chakra-ui/react";
 
-function LoginUser({ toggleRegisterUser }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
-  function loggingIn() {
-    console.log(username, password);
-  }
+
+function LoginUser({ toggleRegisterUser }) {
+
+  
 
   return (
     <Box>
       <Flex w="100%" h="100vh" justify="center" mt="10vh">
-        <Box bg="brand.300" w="30vw" h="40vh" borderRadius={10}>
+        <Box bg="brand.300" w="50vw" h="60vh" borderRadius={10}>
           <Flex
             justify="center"
             align="center"
             w="100%"
-            h="40vh"
+            h="60vh"
             direction="column"
           >
             <Heading as="h3" size="lg" color="whiteAlpha.800">
