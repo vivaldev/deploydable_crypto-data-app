@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -42,25 +42,29 @@ const App = () => {
     setIsRegistered(true);
   }
 
+  const UserContext = createContext();
+
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Routes>
-          {isRegistered ? (
-            <Route path="/" element={<Home data={data} />} />
-          ) : (
-            <Route
-              path="/"
-              element={<LoginUser toggleRegisterUser={toggleRegisterUser} />}
-            />
-          )}
-          <Route path="/landingpage" element={<LandingPage />} />
+        <UserContext.Provider value={isRegistered}>
+          <Routes>
+            {isRegistered ? (
+              <Route path="/" element={<Home data={data} />} />
+            ) : (
+              <Route
+                path="/"
+                element={<LoginUser toggleRegisterUser={toggleRegisterUser} />}
+              />
+            )}
+            <Route path="/landingpage" element={<LandingPage />} />
 
-          <Route path="/top100" element={<Top100 data={data} />} />
-          <Route path="/search" element={<SearchResults data={data} />} />
-          <Route path="/coins" element={<Coins data={data} />} />
-        </Routes>
+            <Route path="/top100" element={<Top100 data={data} />} />
+            <Route path="/search" element={<SearchResults data={data} />} />
+            <Route path="/coins" element={<Coins data={data} />} />
+          </Routes>
+        </UserContext.Provider>
       </BrowserRouter>
     </div>
   );
