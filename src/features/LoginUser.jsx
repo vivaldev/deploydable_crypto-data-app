@@ -13,20 +13,20 @@ function LoginUser({ toggleRegisterUser }) {
   return (
     <Box>
       <Flex w="100%" h="100vh" justify="center" mt="10vh">
-        <Box bg="brand.300" w="20vw" h="40vh" borderRadius={10}>
+        <Box bg="brand.300" w="26vw" maxW="26vw" h="40vh" borderRadius={10}>
           <Flex
             justify="center"
             align="center"
-            w="100%"
+            w="256w"
             h="40vh"
             direction="column"
           >
             <Heading as="h3" size="lg" color="whiteAlpha.800">
               Login
             </Heading>
-            <Flex m={5} bg="brand.200">
+            <Flex w="23vw" m={5} bg="brand.200">
               <Box borderRadius={10} p={5}>
-                <Flex direction="column">
+                <Flex direction="column" w="20vw">
                   <Text
                     fontFamily="Karla"
                     fontSize="1.3rem"
