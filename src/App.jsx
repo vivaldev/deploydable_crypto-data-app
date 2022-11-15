@@ -11,6 +11,7 @@ import SearchResults from "./pages/SeacrhResults";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
+import RegisterUser from "./features/RegisterUser";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -42,29 +43,23 @@ const App = () => {
     setIsRegistered(true);
   }
 
-  const UserContext = createContext();
-
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-        <UserContext.Provider value={isRegistered}>
-          <Routes>
-            {isRegistered ? (
-              <Route path="/" element={<Home data={data} />} />
-            ) : (
-              <Route
-                path="/"
-                element={<LoginUser toggleRegisterUser={toggleRegisterUser} />}
-              />
-            )}
-            <Route path="/landingpage" element={<LandingPage />} />
 
-            <Route path="/top100" element={<Top100 data={data} />} />
-            <Route path="/search" element={<SearchResults data={data} />} />
-            <Route path="/coins" element={<Coins data={data} />} />
-          </Routes>
-        </UserContext.Provider>
+        <Routes>
+          {isRegistered ? (
+            <Route path="/" element={<Home data={data} />} />
+          ) : (
+            <Route path="/" element={<RegisterUser />} />
+          )}
+          <Route path="/landingpage" element={<LandingPage />} />
+
+          <Route path="/top100" element={<Top100 data={data} />} />
+          <Route path="/search" element={<SearchResults data={data} />} />
+          <Route path="/coins" element={<Coins data={data} />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

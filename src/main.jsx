@@ -5,9 +5,18 @@ import { ChakraProvider, extendTheme, Box } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 
 const theme = extendTheme({
-  fonts: {
-    heading: "Roboto",
-    body: "Karla",
+  styles: {
+    global: {
+      body: {
+        bg: "brand.100",
+        color: "brand.800",
+      },
+      components: {
+        formControl: {
+          colorScheme: "brand",
+        },
+      },
+    },
   },
   colors: {
     brand: {
